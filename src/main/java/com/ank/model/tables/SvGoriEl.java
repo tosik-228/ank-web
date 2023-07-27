@@ -2,10 +2,7 @@ package com.ank.model.tables;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 
@@ -15,7 +12,8 @@ import java.util.List;
 public class SvGoriEl {
 
     @Id
-    protected int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -32,10 +30,10 @@ public class SvGoriEl {
     @Column(name = "result")
     private int result;
 
-    @Column (name = "withoutVAT")
+    @Column(name = "withoutVAT")
     private double withoutVAT;
 
-    @Column (name = "withVAT")
+    @Column(name = "withVAT")
     private double withVAT;
 
 }

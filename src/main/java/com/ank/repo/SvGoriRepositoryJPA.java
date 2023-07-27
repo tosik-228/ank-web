@@ -5,12 +5,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface SvGoriRepositoryJPA extends JpaRepository<SvGoriEl, String> {
+public interface SvGoriRepositoryJPA extends JpaRepository<SvGoriEl, Integer> {
 
-    SvGoriEl findById(int id);
+    Optional<SvGoriEl> findById(Integer id);
 
     SvGoriEl findBySchetchik(int chetchik);
+
+    public Long countById(Integer id);
+
+
 
     @Query("SELECT sv_gori_elektrichestvo.id FROM SvGoriEl sv_gori_elektrichestvo")
     List<Long> findAllId();

@@ -16,6 +16,9 @@ public class XUser extends BaseEntity {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "password")
     private String password;
 
@@ -32,7 +35,7 @@ public class XUser extends BaseEntity {
     public XUser() {
 
         LocalDateTime date = LocalDateTime.now();
-        super.id = UUID.randomUUID().toString();
+
         this.created = date;
         this.modified = date;
     }

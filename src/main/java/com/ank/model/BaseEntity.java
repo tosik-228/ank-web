@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class BaseEntity implements Serializable {
 
     @Id
-    protected String id;
+    protected Integer id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")

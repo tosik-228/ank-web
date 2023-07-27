@@ -52,7 +52,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             return false;
         }
         Random random = new Random();
-        long x = random.nextLong();
+        int x = (int) random.nextLong();
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encPass = encoder.encode(user.getPassword());
@@ -60,7 +60,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         user.setEmail(user.getEmail());
         user.setStatus(Status.ACTIVE);
         user.setRole("USER");
-        user.setId(String.valueOf(x));
+        user.setId(x);
 
         user.setActivationCode(UUID.randomUUID().toString());
         userRepositoryJPA.save(user);
