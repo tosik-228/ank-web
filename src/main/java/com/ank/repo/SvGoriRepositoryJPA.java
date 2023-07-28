@@ -15,6 +15,8 @@ public interface SvGoriRepositoryJPA extends JpaRepository<SvGoriEl, Integer> {
 
     public Long countById(Integer id);
 
+    SvGoriEl deleteById(int id);
+
 
 
     @Query("SELECT sv_gori_elektrichestvo.id FROM SvGoriEl sv_gori_elektrichestvo")

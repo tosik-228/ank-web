@@ -13,7 +13,7 @@ public class SvGoriEl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @Column(name = "name")
     private String name;

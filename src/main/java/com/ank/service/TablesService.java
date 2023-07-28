@@ -3,6 +3,7 @@ package com.ank.service;
 import com.ank.model.tables.SvGoriEl;
 import com.ank.repo.SvGoriRepositoryJPA;
 import jnr.ffi.annotations.In;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,12 +12,15 @@ import java.util.Optional;
 @Service
 public class TablesService {
 
+    @Autowired
     private SvGoriRepositoryJPA svGoriRepositoryJPA;
 
     public List<SvGoriEl> listAll() {
+
         return (List<SvGoriEl>) svGoriRepositoryJPA.findAll();
     }
-    public void save (SvGoriEl svGoriEl) {
+
+    public void save(SvGoriEl svGoriEl) {
         svGoriRepositoryJPA.save(svGoriEl);
     }
 
