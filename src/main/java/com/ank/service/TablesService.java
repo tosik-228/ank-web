@@ -1,33 +1,33 @@
 package com.ank.service;
 
-import com.ank.model.tables.SvGoriEl;
+import com.ank.model.tables.SV_GORY_Model;
 import com.ank.repo.SvGoriRepositoryJPA;
-import jnr.ffi.annotations.In;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class TablesService {
 
-    @Autowired
-    private SvGoriRepositoryJPA svGoriRepositoryJPA;
+    private final SvGoriRepositoryJPA svGoriRepositoryJPA;
 
-    public List<SvGoriEl> listAll() {
-
-        return (List<SvGoriEl>) svGoriRepositoryJPA.findAll();
+    public TablesService(SvGoriRepositoryJPA svGoriRepositoryJPA) {
+        this.svGoriRepositoryJPA = svGoriRepositoryJPA;
     }
 
-    public void save(SvGoriEl svGoriEl) {
-        svGoriRepositoryJPA.save(svGoriEl);
+    public List<SV_GORY_Model> listAll() {
+
+        return (List<SV_GORY_Model>) svGoriRepositoryJPA.findAll();
     }
 
-    public SvGoriEl get(Integer id) throws Exception {
-        Optional<SvGoriEl> result = svGoriRepositoryJPA.findById(id);
+    public void save(SV_GORY_Model sv) {
+        svGoriRepositoryJPA.save(sv);
+    }
 
-
+    public SV_GORY_Model get(Integer id) throws Exception {
+        Optional<SV_GORY_Model> result = svGoriRepositoryJPA.findById(id);
         throw new Exception("Could not find any users with ID " + id);
     }
 

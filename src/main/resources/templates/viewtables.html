@@ -27,48 +27,100 @@
         <nav th:insert="~{fragments/top-menu :: nav-bar}"></nav>
         <main class="content">
             <div class="container-fluid p-0">
-                <div class="row">
-                    <div class="col-1 col-lg-1 col-xxl-7">
-                        <div class="card flex-fill">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Электроэнергия</h5>
-                            </div>
-                            <table class="table table-hover my-0">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Арендатор</th>
-                                    <th>№ счетчика</th>
-                                    <th>Предыдущие</th>
-                                    <th>Новые</th>
-                                    <th>Итого</th>
-                                    <th>Без НДС</th>
-                                    <th>С НДС</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <th:block th:each="sv : ${svGoriEls}">
+                <div class="col-xl-6 col-xxl-12 d-flex">
+                    <!--                    <div class="col-sm-6 col-lg-1 col-xxl-6">-->
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="col-sm-11">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Электроэнергия --> Светлые Горы</h5>
+                                </div>
+                                <table class="table table-hover my-0">
+                                    <thead>
                                     <tr>
-                                        <td>[[${sv.id}]]</td>
-                                        <td>[[${sv.name}]]</td>
-                                        <td>[[${sv.schetchik}]]</td>
-                                        <td>[[${sv.old}]]</td>
-                                        <td>[[${sv.new1}]]</td>
-                                        <td>[[${sv.result}]]</td>
-                                        <td>[[${sv.withoutVAT}]]</td>
-                                        <td>[[${sv.withVAT}]]</td>
-                                        <td>
-                                            <a th:href="@{'/viewtables/edit/' + ${sv.id}}">Edit</a>
-                                            <a th:href="@{'/viewtables/delete/' + ${sv.id}}">Delete</a>
-                                        </td>
+                                        <th>ID</th>
+                                        <th>Арендатор</th>
+                                        <th>№ счетчика</th>
+                                        <th>Предыдущие</th>
+                                        <th>Новые</th>
+                                        <th>Итого</th>
+                                        <th>Без НДС</th>
+                                        <th>С НДС</th>
+                                        <th>
+                                            <a th:href="@{/viewtables/new}">
+                                                <button class="btn-danger">ADD USER</button>
+                                            </a>
+                                        </th>
                                     </tr>
-                                </th:block>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    <th:block th:each="list : ${list}">
+                                        <tr>
+                                            <td>[[${list.id}]]</td>
+                                            <td>[[${list.name}]]</td>
+                                            <td>[[${list.counter_el}]]</td>
+                                            <td>[[${list.old}]]</td>
+                                            <td>[[${list.new1}]]</td>
+                                            <td>[[${list.result}]]</td>
+                                            <td>[[${list.withoutVAT}]]</td>
+                                            <td>[[${list.withVAT}]]</td>
+                                            <td>
+                                                <a th:href="@{'/viewtables/edit/' + ${list.id}}">Edit</a>
+                                                <a th:href="@{'/viewtables/delete/' + ${list.id}}">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </th:block>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Водоснабжение --> Светлые Горы</h5>
+                        </div>
+                        <table class="table table-hover my-0">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Арендатор</th>
+                                <th>№ счетчика</th>
+                                <th>Предыдущие</th>
+                                <th>Новые</th>
+                                <th>Итого</th>
+                                <th>Без НДС</th>
+                                <th>С НДС</th>
+                                <th>
+                                    <a th:href="@{/viewtables/new}">
+                                        <button class="btn-danger">ADD USER</button>
+                                    </a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="list : ${list}">
+                                <tr>
+                                    <td>[[${list.id}]]</td>
+                                    <td>[[${list.name}]]</td>
+                                    <td>[[${list.counter_water}]]</td>
+                                    <td>[[${list.old}]]</td>
+                                    <td>[[${list.new1}]]</td>
+                                    <td>[[${list.result_water}]]</td>
+                                    <td>[[${list.withoutVAT}]]</td>
+                                    <td>[[${list.withVAT}]]</td>
+                                    <td>
+                                        <a th:href="@{'/viewtables/edit/' + ${list.id}}">Edit</a>
+                                        <a th:href="@{'/viewtables/delete/' + ${list.id}}">Delete</a>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
             </div>
+
         </main>
     </div>
 </div>

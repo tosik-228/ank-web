@@ -1,25 +1,25 @@
 package com.ank.repo;
 
-import com.ank.model.tables.SvGoriEl;
+import com.ank.model.tables.SV_GORY_Model;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface SvGoriRepositoryJPA extends JpaRepository<SvGoriEl, Integer> {
+@Repository
+public interface SvGoriRepositoryJPA extends JpaRepository<SV_GORY_Model, Long> {
 
-    Optional<SvGoriEl> findById(Integer id);
+    Optional<SV_GORY_Model> findById(long id);
 
-    SvGoriEl findBySchetchik(int chetchik);
+//    SV_GORY_Model findByCounter_el(long counter_el);
 
-    public Long countById(Integer id);
+    public Long countById(long id);
 
-    SvGoriEl deleteById(int id);
+    SV_GORY_Model deleteById(long id);
 
-
-
-    @Query("SELECT sv_gori_elektrichestvo.id FROM SvGoriEl sv_gori_elektrichestvo")
+    @Query("SELECT sv_gori.id FROM SV_GORY_Model sv_gori")
     List<Long> findAllId();
 
 }
