@@ -149,7 +149,7 @@
                         <th>Коммуналка</th>
                         <th>Итого</th>
                         <th>
-                            <a th:href="@{/viewtables/new}">
+                            <a th:href="@{/main/new}">
                                 <button class="btn-danger">ADD USER</button>
                             </a>
                         </th>
@@ -163,10 +163,10 @@
                             <td>[[${list.period}]]</td>
                             <td>[[${list.rent}]]</td>
                             <td>[[${list.communal_apartment}]]</td>
-                            <td>[[${list.result}]]</td>
+                            <td>[[${list.result + ' рублей'}]]</td>
                             <td>
-                                <a th:href="@{'/viewtables/edit/' + ${list.id}}">Edit</a>
-                                <a th:href="@{'/viewtables/delete/' + ${list.id}}">Delete</a>
+                                <a th:href="@{'/main/edit/' + ${list.id}}">Edit</a>
+                                <a th:href="@{'/main/delete/' + ${list.id}}">Delete</a>
                             </td>
                         </tr>
                     </th:block>

@@ -50,7 +50,7 @@ public class Table_SV_GORY_Controller {
             model.addAttribute("sv", sv);
             model.addAttribute("pageTitle", "Edit svGoriEl (ID: " + id + ")");
 
-            return "user_form";
+            return "user_form_reestr";
 
         } catch (Exception e) {
             ra.addFlashAttribute("message", e.getMessage());
@@ -62,7 +62,7 @@ public class Table_SV_GORY_Controller {
     public String showNewForm(Model model) {
         model.addAttribute("sv", new SV_GORY_Model());
         model.addAttribute("pageTitle", "ADD USER");
-        return "user_form";
+        return "user_form_reestr";
     }
 
     @PostMapping("/viewtables/save")
