@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .frameOptions().disable().and()
                 .authorizeRequests()
                 .mvcMatchers("/", "/login", "market", "/activate/*", "/registration", "/*/*.css", "/static/**", "/css/**",
-                        "/js/**", "/images/**")
+                        "/js/**", "/images/**", ".jpg", "/index")
                 .permitAll()
                 .mvcMatchers("/main").hasAnyRole("ADMIN", "USER")
                 .mvcMatchers("/prof").hasAnyRole("ADMIN", "USER")
